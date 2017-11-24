@@ -555,20 +555,32 @@ public class Multiverso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
 
         } else {
-                File f=null;
-                JFileChooser jfc = new JFileChooser();
-                FileNameExtensionFilter filtro
-                        = new FileNameExtensionFilter("Archivos de texto", "txt");
-               jfc.setFileFilter(filtro);
-                int s = jfc.showOpenDialog(this);
+            FileReader fr = null;
+            BufferedReader br = null;
+            File f = null;
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro
+                    = new FileNameExtensionFilter("Archivos de texto", "txt");
+            jfc.setFileFilter(filtro);
+            int s = jfc.showOpenDialog(this);
             if (s == JFileChooser.APPROVE_OPTION) {
-                
+                try {
+                    
+                } catch (Exception e) {
+                }
                 f = jfc.getSelectedFile();
                 u.abrir(f);
-                
+                fr = new FileReader(f);
+                br = new BufferedReader(fr);
+                String linea;
+                ta_1.setText("");
+                while ((linea = br.readLine()) != null) {
+                    ta_1.append(linea);
+                    ta_1.append("\n");
+                }
             }
-                
-            }
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
