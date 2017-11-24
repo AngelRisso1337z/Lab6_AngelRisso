@@ -5,6 +5,7 @@
  */
 package lab6_angelrisso;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,14 +42,20 @@ public class Multiverso extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jd_eliiminar = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_seres = new javax.swing.JList<>();
+        jLabel7 = new javax.swing.JLabel();
+        pp_menu = new javax.swing.JPopupMenu();
+        jmi_modificar = new javax.swing.JMenuItem();
+        jmi_eliminar = new javax.swing.JMenuItem();
         bt_universo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        jd_cUni.setTitle("Crear seres");
         jd_cUni.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jd_cUni.setMinimumSize(new java.awt.Dimension(618, 492));
         jd_cUni.setModal(true);
-        jd_cUni.getContentPane().setLayout(null);
 
         bt_seres.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bt_seres.setText("Crear Seres");
@@ -58,61 +65,129 @@ public class Multiverso extends javax.swing.JFrame {
                 bt_seresActionPerformed(evt);
             }
         });
-        jd_cUni.getContentPane().add(bt_seres);
-        bt_seres.setBounds(290, 360, 120, 50);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Raza del ser");
-        jd_cUni.getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 120, 110, 22);
 
         tf_raza.setText(" ");
-        jd_cUni.getContentPane().add(tf_raza);
-        tf_raza.setBounds(140, 110, 190, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Edad");
-        jd_cUni.getContentPane().add(jLabel4);
-        jLabel4.setBounds(80, 150, 50, 22);
 
         sp_edad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        jd_cUni.getContentPane().add(sp_edad);
-        sp_edad.setBounds(140, 150, 60, 30);
-        jd_cUni.getContentPane().add(sp_ki);
-        sp_ki.setBounds(140, 200, 120, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ki");
-        jd_cUni.getContentPane().add(jLabel5);
-        jLabel5.setBounds(110, 200, 20, 22);
 
         tf_planeta.setText(" ");
-        jd_cUni.getContentPane().add(tf_planeta);
-        tf_planeta.setBounds(140, 260, 190, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("planeta ");
-        jd_cUni.getContentPane().add(jLabel6);
-        jLabel6.setBounds(60, 260, 80, 22);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/epic space face.jpg"))); // NOI18N
-        jd_cUni.getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 620, 470);
+
+        javax.swing.GroupLayout jd_cUniLayout = new javax.swing.GroupLayout(jd_cUni.getContentPane());
+        jd_cUni.getContentPane().setLayout(jd_cUniLayout);
+        jd_cUniLayout.setHorizontalGroup(
+            jd_cUniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(sp_ki, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(tf_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(tf_raza, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(bt_seres, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1)
+        );
+        jd_cUniLayout.setVerticalGroup(
+            jd_cUniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(sp_ki, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel6))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(jLabel5))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jLabel3))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(tf_planeta, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jLabel4))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(tf_raza, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_cUniLayout.createSequentialGroup()
+                .addGap(360, 360, 360)
+                .addComponent(bt_seres, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jl_seres.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_seres);
+
+        jLabel7.setText("Seres existentes");
 
         javax.swing.GroupLayout jd_eliiminarLayout = new javax.swing.GroupLayout(jd_eliiminar.getContentPane());
         jd_eliiminar.getContentPane().setLayout(jd_eliiminarLayout);
         jd_eliiminarLayout.setHorizontalGroup(
             jd_eliiminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_eliiminarLayout.createSequentialGroup()
+                .addGroup(jd_eliiminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliiminarLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_eliiminarLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jd_eliiminarLayout.setVerticalGroup(
             jd_eliiminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_eliiminarLayout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
+
+        jmi_modificar.setText("jMenuItem1");
+        pp_menu.add(jmi_modificar);
+
+        jmi_eliminar.setText("jMenuItem2");
+        pp_menu.add(jmi_eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -124,11 +199,11 @@ public class Multiverso extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bt_universo);
-        bt_universo.setBounds(40, 30, 210, 120);
+        bt_universo.setBounds(40, 30, 240, 120);
 
-        jButton2.setText("eliminar seres");
+        jButton2.setText("listar y/o eliminar seres");
         getContentPane().add(jButton2);
-        jButton2.setBounds(40, 320, 200, 100);
+        jButton2.setBounds(40, 320, 240, 100);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/fourstar.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -223,8 +298,14 @@ public class Multiverso extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_cUni;
     private javax.swing.JDialog jd_eliiminar;
+    private javax.swing.JList<String> jl_seres;
+    private javax.swing.JMenuItem jmi_eliminar;
+    private javax.swing.JMenuItem jmi_modificar;
+    private javax.swing.JPopupMenu pp_menu;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JSpinner sp_ki;
     private javax.swing.JTextField tf_planeta;
