@@ -5,6 +5,8 @@
  */
 package lab6_angelrisso;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author HP_AMD_64
@@ -28,31 +30,90 @@ public class Multiverso extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_cUni = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tf_raza = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        sp_edad = new javax.swing.JSpinner();
+        sp_ki = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        tf_planeta = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jd_eliiminar = new javax.swing.JDialog();
         bt_universo = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jd_cUniLayout = new javax.swing.GroupLayout(jd_cUni.getContentPane());
-        jd_cUni.getContentPane().setLayout(jd_cUniLayout);
-        jd_cUniLayout.setHorizontalGroup(
-            jd_cUniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jd_cUni.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jd_cUni.setMinimumSize(new java.awt.Dimension(618, 492));
+        jd_cUni.setModal(true);
+        jd_cUni.getContentPane().setLayout(null);
+
+        jLabel1.setText("IMG va aqui");
+        jd_cUni.getContentPane().add(jLabel1);
+        jLabel1.setBounds(450, 290, 57, 14);
+
+        jButton1.setText("Crear Seres");
+        jd_cUni.getContentPane().add(jButton1);
+        jButton1.setBounds(450, 390, 89, 23);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Raza del ser");
+        jd_cUni.getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 120, 110, 22);
+        jd_cUni.getContentPane().add(tf_raza);
+        tf_raza.setBounds(140, 120, 190, 20);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("Edad");
+        jd_cUni.getContentPane().add(jLabel4);
+        jLabel4.setBounds(80, 150, 50, 22);
+
+        sp_edad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jd_cUni.getContentPane().add(sp_edad);
+        sp_edad.setBounds(140, 150, 60, 30);
+        jd_cUni.getContentPane().add(sp_ki);
+        sp_ki.setBounds(140, 200, 120, 30);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("Ki");
+        jd_cUni.getContentPane().add(jLabel5);
+        jLabel5.setBounds(110, 200, 20, 22);
+        jd_cUni.getContentPane().add(tf_planeta);
+        tf_planeta.setBounds(140, 260, 190, 20);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setText("planeta ");
+        jd_cUni.getContentPane().add(jLabel6);
+        jLabel6.setBounds(60, 260, 80, 22);
+
+        javax.swing.GroupLayout jd_eliiminarLayout = new javax.swing.GroupLayout(jd_eliiminar.getContentPane());
+        jd_eliiminar.getContentPane().setLayout(jd_eliiminarLayout);
+        jd_eliiminarLayout.setHorizontalGroup(
+            jd_eliiminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        jd_cUniLayout.setVerticalGroup(
-            jd_cUniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jd_eliiminarLayout.setVerticalGroup(
+            jd_eliiminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        bt_universo.setText("CREAR UNIVERSO");
+        bt_universo.setText("CREAR UNIVERSO Y AÑADIR SERES");
         bt_universo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_universoMouseClicked(evt);
             }
         });
         getContentPane().add(bt_universo);
-        bt_universo.setBounds(310, 150, 210, 120);
+        bt_universo.setBounds(40, 30, 210, 120);
+
+        jButton2.setText("eliminar seres");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(40, 320, 200, 100);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/fourstar.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -62,15 +123,23 @@ public class Multiverso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_universoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_universoMouseClicked
+        if (ban<1) {
+            ban++;
+            String nombre=JOptionPane.showInputDialog("Ingrese el nombre de este universo");
+            
+            u.setNombre(nombre);
+        }else{
+            JOptionPane.showMessageDialog(this, "ya existe un universo");
+        }
+        
+        
+    
         jd_cUni.pack();
         jd_cUni.setModal(true);
         jd_cUni.setVisible(true);
         jd_cUni.setLocationRelativeTo(this);
     }//GEN-LAST:event_bt_universoMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -103,9 +172,23 @@ public class Multiverso extends javax.swing.JFrame {
         });
     }
 Universo uni;
+Universo u=new Universo();
+int ban=0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_universo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JDialog jd_cUni;
+    private javax.swing.JDialog jd_eliiminar;
+    private javax.swing.JSpinner sp_edad;
+    private javax.swing.JSpinner sp_ki;
+    private javax.swing.JTextField tf_planeta;
+    private javax.swing.JTextField tf_raza;
     // End of variables declaration//GEN-END:variables
 }
