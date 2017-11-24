@@ -565,19 +565,30 @@ public class Multiverso extends javax.swing.JFrame {
             int s = jfc.showOpenDialog(this);
             if (s == JFileChooser.APPROVE_OPTION) {
                 try {
-                    
+
                 } catch (Exception e) {
                 }
                 f = jfc.getSelectedFile();
                 u.abrir(f);
-                fr = new FileReader(f);
-                br = new BufferedReader(fr);
-                String linea;
-                ta_1.setText("");
-                while ((linea = br.readLine()) != null) {
-                    ta_1.append(linea);
-                    ta_1.append("\n");
+                try {
+                    fr = new FileReader(f);
+                    br = new BufferedReader(fr);
+                    String linea;
+                    ta_1.setText("");
+                    while ((linea = br.readLine()) != null) {
+                        ta_1.append(linea);
+                        ta_1.append("\n");
+                    }
+                } catch (Exception e) {
+                } finally {
+                    try {
+                        br.close();
+                        fr.close();
+
+                    } catch (Exception e) {
+                    }
                 }
+
             }
 
         }
