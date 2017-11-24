@@ -5,13 +5,13 @@
  */
 package lab6_angelrisso;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import java.util.Scanner;
 
 /**
  *
@@ -53,12 +53,12 @@ public class Universo {
     public String toString() {
         return "Universo " + nombre;
     }
-
-    public void escribir() {
-        File f = null;
+    
+    public void escribir(ArrayList univ,File f) {
+        File file = null;
         FileWriter fw = null;
         BufferedWriter bw = null;
-
+        
         try {
 
         } catch (Exception e) {
@@ -77,9 +77,13 @@ public class Universo {
             }
 
         }
-        
+
     }
-    public void abrir() {
+
+    public void abrir() {   
+        
+        
+        
         
     }
 }
