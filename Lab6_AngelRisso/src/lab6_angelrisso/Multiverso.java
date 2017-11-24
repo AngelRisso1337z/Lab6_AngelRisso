@@ -5,7 +5,10 @@
  */
 package lab6_angelrisso;
 
-import java.util.HashSet;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -67,6 +70,7 @@ public class Multiverso extends javax.swing.JFrame {
         bt_universo = new javax.swing.JButton();
         bt_LoE = new javax.swing.JButton();
         bt_crear = new javax.swing.JButton();
+        bt_crearArch = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jd_cUni.setTitle("Crear seres");
@@ -308,6 +312,15 @@ public class Multiverso extends javax.swing.JFrame {
         getContentPane().add(bt_crear);
         bt_crear.setBounds(330, 340, 220, 90);
 
+        bt_crearArch.setText("crear archivo");
+        bt_crearArch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_crearArchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_crearArch);
+        bt_crearArch.setBounds(590, 30, 100, 50);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/fourstar.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 10, 760, 530);
@@ -326,9 +339,7 @@ public class Multiverso extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_universoMouseClicked
 
     private void bt_seresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_seresActionPerformed
-        if (!ban) {
-            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
-        } else {
+        
             if (tf_raza.getText().equals(" ") || tf_raza.getText().equals(" ")) {
                 JOptionPane.showMessageDialog(this, "No puede tener espacios sin nada");
 
@@ -359,7 +370,7 @@ public class Multiverso extends javax.swing.JFrame {
             }
 
             System.out.println(u.getHabitantes());
-        }
+        
     }//GEN-LAST:event_bt_seresActionPerformed
 
     private void jmi_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarActionPerformed
@@ -422,11 +433,23 @@ public class Multiverso extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_modificarActionPerformed
 
     private void bt_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearActionPerformed
+        if (!ban) {
+            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
+        } else {
         jd_cUni.pack();
         jd_cUni.setModal(true);
         jd_cUni.setVisible(true);
         jd_cUni.setLocationRelativeTo(this);
+        }
     }//GEN-LAST:event_bt_crearActionPerformed
+
+    private void bt_crearArchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearArchActionPerformed
+       if (!ban) {
+            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
+        } else {
+        u.escribir();
+    }
+    }//GEN-LAST:event_bt_crearArchActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -466,6 +489,7 @@ public class Multiverso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_LoE;
     private javax.swing.JButton bt_crear;
+    private javax.swing.JButton bt_crearArch;
     private javax.swing.JButton bt_modificar;
     private javax.swing.JButton bt_seres;
     private javax.swing.JButton bt_universo;
