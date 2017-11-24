@@ -62,9 +62,11 @@ public class Multiverso extends javax.swing.JFrame {
         tf_planeta1 = new javax.swing.JTextField();
         bt_modificar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         bt_universo = new javax.swing.JButton();
         bt_LoE = new javax.swing.JButton();
+        bt_crear = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         jd_cUni.setTitle("Crear seres");
@@ -247,7 +249,7 @@ public class Multiverso extends javax.swing.JFrame {
         jLabel11.setBounds(60, 260, 80, 22);
 
         jd_modificar.getContentPane().add(cb_seres);
-        cb_seres.setBounds(430, 110, 90, 20);
+        cb_seres.setBounds(350, 50, 150, 20);
 
         tf_planeta1.setText(" ");
         jd_modificar.getContentPane().add(tf_planeta1);
@@ -266,6 +268,12 @@ public class Multiverso extends javax.swing.JFrame {
         jd_modificar.getContentPane().add(jLabel12);
         jLabel12.setBounds(250, 101, 0, 0);
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("MODIFICAR");
+        jd_modificar.getContentPane().add(jLabel14);
+        jLabel14.setBounds(140, 40, 109, 22);
+
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/epic space face.jpg"))); // NOI18N
         jd_modificar.getContentPane().add(jLabel13);
         jLabel13.setBounds(0, 0, 580, 470);
@@ -273,14 +281,14 @@ public class Multiverso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        bt_universo.setText("CREAR UNIVERSO Y AÑADIR SERES");
+        bt_universo.setText("CREAR UNIVERSO ");
         bt_universo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_universoMouseClicked(evt);
             }
         });
         getContentPane().add(bt_universo);
-        bt_universo.setBounds(40, 30, 240, 120);
+        bt_universo.setBounds(40, 30, 160, 80);
 
         bt_LoE.setText("listar y/o eliminar seres");
         bt_LoE.addActionListener(new java.awt.event.ActionListener() {
@@ -289,7 +297,16 @@ public class Multiverso extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bt_LoE);
-        bt_LoE.setBounds(40, 320, 240, 100);
+        bt_LoE.setBounds(60, 350, 170, 70);
+
+        bt_crear.setText("crear seres");
+        bt_crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_crearActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_crear);
+        bt_crear.setBounds(330, 340, 220, 90);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/fourstar.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -299,59 +316,61 @@ public class Multiverso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_universoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_universoMouseClicked
-        if (ban < 1) {
-            ban++;
-            String nombre = JOptionPane.showInputDialog("Ingrese el nombre de este universo");
+        String nombre = " ";
 
-            u.setNombre(nombre);
-        } else {
-            JOptionPane.showMessageDialog(this, "ya existe un universo");
-        }
+        nombre = JOptionPane.showInputDialog("Ingrese el nombre de este universo");
 
-        jd_cUni.pack();
-        jd_cUni.setModal(true);
-        jd_cUni.setVisible(true);
-        jd_cUni.setLocationRelativeTo(this);
+        u.setNombre(nombre);
+        ban=true;
+
     }//GEN-LAST:event_bt_universoMouseClicked
 
     private void bt_seresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_seresActionPerformed
-        if (tf_raza.getText().equals(" ") || tf_raza.getText().equals(" ")) {
-            JOptionPane.showMessageDialog(this, "No puede tener espacios sin nada");
-
+        if (!ban) {
+            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
         } else {
+            if (tf_raza.getText().equals(" ") || tf_raza.getText().equals(" ")) {
+                JOptionPane.showMessageDialog(this, "No puede tener espacios sin nada");
 
-            String raza = "";
-            int años = 0;
-            int ki = 0;
-            String planeta = "";
+            } else {
 
-            raza = tf_raza.getText();
-            años = (Integer) sp_edad.getValue();
-            ki = (Integer) sp_ki.getValue();
-            JOptionPane.showMessageDialog(this.jd_cUni, "Guardado exitosamente");
-            u.setHabitantes(new Ser_vivo(raza, ki, años, planeta));
+                String raza = "";
+                int años = 0;
+                int ki = 0;
+                String planeta = "";
 
-            tf_raza.setText(" ");
-            sp_edad.setValue(0);
-            sp_ki.setValue(0);
-            tf_planeta.setText(" ");
-            DefaultListModel modL
-                    = (DefaultListModel) jl_seres.getModel();
-            modL.addElement(new Ser_vivo(raza, ki, años, planeta));
-            Ser_vivo sb = new Ser_vivo(raza, ki, años, planeta);
-            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_seres.getModel();
-            modelo.addElement(sb);
+                raza = tf_raza.getText();
+                años = (Integer) sp_edad.getValue();
+                ki = (Integer) sp_ki.getValue();
+                JOptionPane.showMessageDialog(this.jd_cUni, "Guardado exitosamente");
+                u.setHabitantes(new Ser_vivo(raza, ki, años, planeta));
 
+                tf_raza.setText(" ");
+                sp_edad.setValue(0);
+                sp_ki.setValue(0);
+                tf_planeta.setText(" ");
+                DefaultListModel modL
+                        = (DefaultListModel) jl_seres.getModel();
+                modL.addElement(new Ser_vivo(raza, ki, años, planeta));
+                Ser_vivo sb = new Ser_vivo(raza, ki, años, planeta);
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_seres.getModel();
+                modelo.addElement(sb);
+
+            }
+
+            System.out.println(u.getHabitantes());
         }
-
-        System.out.println(u.getHabitantes());
     }//GEN-LAST:event_bt_seresActionPerformed
 
     private void jmi_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarActionPerformed
+        if (!ban) {
+            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
+        } else {
         jd_modificar.pack();
         jd_modificar.setModal(true);
         jd_modificar.setVisible(true);
         jd_modificar.setLocationRelativeTo(this);
+        }
     }//GEN-LAST:event_jmi_modificarActionPerformed
 
     private void jl_seresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_seresMouseClicked
@@ -361,27 +380,53 @@ public class Multiverso extends javax.swing.JFrame {
     }//GEN-LAST:event_jl_seresMouseClicked
 
     private void bt_LoEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LoEActionPerformed
+        if (!ban) {
+            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
+        } else {
         jd_eliiminar.pack();
         jd_eliiminar.setModal(true);
         jd_eliiminar.setVisible(true);
         jd_eliiminar.setLocationRelativeTo(this);
+        }
     }//GEN-LAST:event_bt_LoEActionPerformed
 
     private void bt_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarActionPerformed
+        if (!ban) {
+            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
+        } else {
         int cosa = cb_seres.getSelectedIndex();
         String raza = " ";
         int años = 0;
         int ki = 0;
         String planeta = " ";
+
         raza = tf_raza1.getText();
         años = (Integer) sp_edad1.getValue();
         ki = (Integer) sp_ki1.getValue();
         planeta = tf_planeta1.getText();
+
+        JOptionPane.showMessageDialog(jd_modificar, "Modificado a la perfeccion");
+
+        tf_raza1.setText("");
+        sp_edad1.setValue(0);
+        sp_ki1.setValue(0);
+        tf_planeta1.setText("");
+
         Ser_vivo sv = new Ser_vivo(raza, ki, años, planeta);
         u.habitantes.set(cosa, sv);
         DefaultListModel modL
                 = (DefaultListModel) jl_seres.getModel();
+        modL.addElement(sv);
+        modL.remove(cosa - 1);
+        }
     }//GEN-LAST:event_bt_modificarActionPerformed
+
+    private void bt_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearActionPerformed
+        jd_cUni.pack();
+        jd_cUni.setModal(true);
+        jd_cUni.setVisible(true);
+        jd_cUni.setLocationRelativeTo(this);
+    }//GEN-LAST:event_bt_crearActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -417,9 +462,10 @@ public class Multiverso extends javax.swing.JFrame {
     Universo uni;
     Universo u = new Universo();
 
-    int ban = 0;
+    boolean ban = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_LoE;
+    private javax.swing.JButton bt_crear;
     private javax.swing.JButton bt_modificar;
     private javax.swing.JButton bt_seres;
     private javax.swing.JButton bt_universo;
@@ -429,6 +475,7 @@ public class Multiverso extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
