@@ -580,12 +580,14 @@ public class Multiverso extends javax.swing.JFrame {
                         ta_1.append("\n");
                     }
                 } catch (Exception e) {
+                    e.printStackTrace();
                 } finally {
                     try {
                         br.close();
                         fr.close();
 
                     } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
 
