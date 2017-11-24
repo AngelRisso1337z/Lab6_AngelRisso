@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Universo {
     private String nombre;
-    private ArrayList<Ser_vivo>habitantes=new ArrayList();
+    public ArrayList<Ser_vivo>habitantes=new ArrayList();
 
     public Universo() {
     }
