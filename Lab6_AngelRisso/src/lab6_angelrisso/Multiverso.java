@@ -515,10 +515,15 @@ public class Multiverso extends javax.swing.JFrame {
         if (!ban) {
             JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
         } else {
-            ArrayList univ = new ArrayList();
-            univ.addAll(u.habitantes);
+            ArrayList<String> univ = new ArrayList();
+
+            for (Object o : u.habitantes) {
+                Ser_vivo t = (Ser_vivo) o;
+                univ.add(t.getRaza() + "|" + t.getKi() + "|" + t.getAños() + "|" + t.getPlaneta() + "|" + "\n");
+            }
             File f = null;
             JFileChooser jfc = new JFileChooser();
+
             FileNameExtensionFilter filtro
                     = new FileNameExtensionFilter("Archivos de texto", "txt");
             int s = jfc.showSaveDialog(this);
@@ -548,9 +553,22 @@ public class Multiverso extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (!ban) {
             JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
+
         } else {
-            u.abrir();
-        }
+                File f=null;
+                JFileChooser jfc = new JFileChooser();
+                FileNameExtensionFilter filtro
+                        = new FileNameExtensionFilter("Archivos de texto", "txt");
+               jfc.setFileFilter(filtro);
+                int s = jfc.showOpenDialog(this);
+            if (s == JFileChooser.APPROVE_OPTION) {
+                
+                f = jfc.getSelectedFile();
+                u.abrir(f);
+                
+            }
+                
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

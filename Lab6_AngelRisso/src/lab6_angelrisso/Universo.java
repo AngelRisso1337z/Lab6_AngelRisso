@@ -53,14 +53,19 @@ public class Universo {
     public String toString() {
         return "Universo " + nombre;
     }
-    
-    public void escribir(ArrayList univ,File f) {
-        File file = null;
+
+    public void escribir(ArrayList univ, File f) {
+
         FileWriter fw = null;
         BufferedWriter bw = null;
-        
-        try {
 
+        try {
+            fw = new FileWriter(f);
+            bw = new BufferedWriter(fw);
+            for (Object o : univ) {
+                String t = (String) o;
+                bw.write(t);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -80,10 +85,25 @@ public class Universo {
 
     }
 
-    public void abrir() {   
-        
-        
-        
-        
+    public void abrir(File f) {
+        if (f.exists()) {
+            Scanner sc;
+            Scanner scl;
+            habitantes = new ArrayList();
+            try {
+                sc = new Scanner(f);
+                sc.useDelimiter("\n");
+                while (sc.hasNext()) {
+                    scl = new Scanner(sc.next());
+                    scl.useDelimiter("\\|");
+                    habitantes.add(new Ser_vivo(scl.next(), scl.nextInt(), scl.nextInt(), scl.next()));
+                    scl.close();
+                }
+                sc.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }
