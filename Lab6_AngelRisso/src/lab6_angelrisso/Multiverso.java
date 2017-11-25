@@ -224,50 +224,34 @@ public class Multiverso extends javax.swing.JFrame {
         pp_menu.add(jmi_modificar);
 
         jmi_eliminar.setText("eliminar");
+        jmi_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarActionPerformed(evt);
+            }
+        });
         pp_menu.add(jmi_eliminar);
 
-        jd_modificar.getContentPane().setLayout(null);
-
         tf_raza1.setText(" ");
-        jd_modificar.getContentPane().add(tf_raza1);
-        tf_raza1.setBounds(140, 110, 190, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Raza del ser");
-        jd_modificar.getContentPane().add(jLabel8);
-        jLabel8.setBounds(20, 120, 110, 22);
 
         sp_edad1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        jd_modificar.getContentPane().add(sp_edad1);
-        sp_edad1.setBounds(140, 150, 60, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Edad");
-        jd_modificar.getContentPane().add(jLabel9);
-        jLabel9.setBounds(80, 150, 50, 22);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Ki");
-        jd_modificar.getContentPane().add(jLabel10);
-        jLabel10.setBounds(110, 200, 20, 22);
-        jd_modificar.getContentPane().add(sp_ki1);
-        sp_ki1.setBounds(140, 200, 120, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("planeta ");
-        jd_modificar.getContentPane().add(jLabel11);
-        jLabel11.setBounds(60, 260, 80, 22);
-
-        jd_modificar.getContentPane().add(cb_seres);
-        cb_seres.setBounds(350, 50, 150, 20);
 
         tf_planeta1.setText(" ");
-        jd_modificar.getContentPane().add(tf_planeta1);
-        tf_planeta1.setBounds(140, 260, 190, 30);
 
         bt_modificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bt_modificar.setText("modificar");
@@ -277,20 +261,94 @@ public class Multiverso extends javax.swing.JFrame {
                 bt_modificarActionPerformed(evt);
             }
         });
-        jd_modificar.getContentPane().add(bt_modificar);
-        bt_modificar.setBounds(160, 350, 120, 50);
-        jd_modificar.getContentPane().add(jLabel12);
-        jLabel12.setBounds(250, 101, 0, 0);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("MODIFICAR");
-        jd_modificar.getContentPane().add(jLabel14);
-        jLabel14.setBounds(140, 40, 109, 22);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/epic space face.jpg"))); // NOI18N
-        jd_modificar.getContentPane().add(jLabel13);
-        jLabel13.setBounds(0, 0, 580, 470);
+
+        javax.swing.GroupLayout jd_modificarLayout = new javax.swing.GroupLayout(jd_modificar.getContentPane());
+        jd_modificar.getContentPane().setLayout(jd_modificarLayout);
+        jd_modificarLayout.setHorizontalGroup(
+            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGroup(jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel14))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(jLabel12))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(sp_ki1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(bt_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(tf_raza1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(tf_planeta1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(sp_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(350, 350, 350)
+                        .addComponent(cb_seres, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modificarLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        jd_modificarLayout.setVerticalGroup(
+            jd_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel14)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel12)
+                .addGap(99, 99, 99)
+                .addComponent(sp_ki1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel11)
+                .addGap(68, 68, 68)
+                .addComponent(bt_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(tf_raza1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(jLabel10))
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(tf_planeta1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jLabel9))
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(sp_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(cb_seres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_modificarLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jLabel8))
+            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         jButton1.setText("cargar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -328,7 +386,6 @@ public class Multiverso extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         bt_universo.setText("CREAR UNIVERSO ");
         bt_universo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -336,8 +393,6 @@ public class Multiverso extends javax.swing.JFrame {
                 bt_universoMouseClicked(evt);
             }
         });
-        getContentPane().add(bt_universo);
-        bt_universo.setBounds(330, 260, 160, 80);
 
         bt_LoE.setText("listar y/o eliminar seres");
         bt_LoE.addActionListener(new java.awt.event.ActionListener() {
@@ -345,8 +400,6 @@ public class Multiverso extends javax.swing.JFrame {
                 bt_LoEActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_LoE);
-        bt_LoE.setBounds(530, 350, 170, 70);
 
         bt_crear.setText("crear seres");
         bt_crear.addActionListener(new java.awt.event.ActionListener() {
@@ -354,8 +407,6 @@ public class Multiverso extends javax.swing.JFrame {
                 bt_crearActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_crear);
-        bt_crear.setBounds(140, 370, 180, 70);
 
         bt_crearArch.setText("crear archivo");
         bt_crearArch.addActionListener(new java.awt.event.ActionListener() {
@@ -363,8 +414,6 @@ public class Multiverso extends javax.swing.JFrame {
                 bt_crearArchActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_crearArch);
-        bt_crearArch.setBounds(640, 50, 100, 50);
 
         bt_cargar.setText("cargar archivo");
         bt_cargar.addActionListener(new java.awt.event.ActionListener() {
@@ -372,13 +421,9 @@ public class Multiverso extends javax.swing.JFrame {
                 bt_cargarActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_cargar);
-        bt_cargar.setBounds(640, 110, 110, 50);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setText("SISTEMA DE ZENO SAMA");
-        getContentPane().add(jLabel15);
-        jLabel15.setBounds(280, 20, 230, 50);
 
         jButton2.setText("salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -386,12 +431,63 @@ public class Multiverso extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(50, 30, 51, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_angelrisso/fourstar.jpg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 10, 760, 530);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jButton2)
+                .addGap(179, 179, 179)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(640, 640, 640)
+                .addComponent(bt_cargar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(530, 530, 530)
+                .addComponent(bt_LoE, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(640, 640, 640)
+                .addComponent(bt_crearArch, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(bt_universo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(bt_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton2))
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(bt_cargar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190)
+                .addComponent(bt_LoE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(bt_crearArch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(bt_universo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addComponent(bt_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -421,6 +517,7 @@ public class Multiverso extends javax.swing.JFrame {
             raza = tf_raza.getText();
             años = (Integer) sp_edad.getValue();
             ki = (Integer) sp_ki.getValue();
+            planeta=tf_raza.getText();
             JOptionPane.showMessageDialog(this.jd_cUni, "Guardado exitosamente");
             u.setHabitantes(new Ser_vivo(raza, ki, años, planeta));
 
@@ -495,8 +592,9 @@ public class Multiverso extends javax.swing.JFrame {
             u.habitantes.set(cosa, sv);
             DefaultListModel modL
                     = (DefaultListModel) jl_seres.getModel();
+            modL.remove(cosa);
             modL.addElement(sv);
-            modL.remove(cosa - 1);
+
         }
     }//GEN-LAST:event_bt_modificarActionPerformed
 
@@ -516,10 +614,10 @@ public class Multiverso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
         } else {
             ArrayList<String> univ = new ArrayList();
-
+            Ser_vivo t;
             for (Object o : u.habitantes) {
-                Ser_vivo t = (Ser_vivo) o;
-                univ.add(t.getRaza() + "|" + t.getKi() + "|" + t.getAños() + "|" + t.getPlaneta() + "|" + "\n");
+                t = (Ser_vivo) o;
+                univ.add("|"+t.getRaza()+ "|"+ t.getKi()+"|"+t.getAños()+"|"+ t.getPlaneta()+ "|" + "\n");
             }
             File f = null;
             JFileChooser jfc = new JFileChooser();
@@ -540,61 +638,13 @@ public class Multiverso extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_crearArchActionPerformed
 
     private void bt_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cargarActionPerformed
-        if (!ban) {
-            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
-        } else {
-            jd_cargar.pack();
-            jd_cargar.setModal(true);
-            jd_cargar.setVisible(true);
-            jd_cargar.setLocationRelativeTo(this);
-        }
+
+        jd_cargar.pack();
+        jd_cargar.setModal(true);
+        jd_cargar.setVisible(true);
+        jd_cargar.setLocationRelativeTo(this);
+
     }//GEN-LAST:event_bt_cargarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (!ban) {
-            JOptionPane.showMessageDialog(this, "no puede entrar sin crear un universo");
-
-        } else {
-            FileReader fr = null;
-            BufferedReader br = null;
-            File f = null;
-            JFileChooser jfc = new JFileChooser();
-            FileNameExtensionFilter filtro
-                    = new FileNameExtensionFilter("Archivos de texto", "txt");
-            jfc.setFileFilter(filtro);
-            int s = jfc.showOpenDialog(this);
-            if (s == JFileChooser.APPROVE_OPTION) {
-                try {
-
-                } catch (Exception e) {
-                }
-                f = jfc.getSelectedFile();
-                u.abrir(f);
-                try {
-                    fr = new FileReader(f);
-                    br = new BufferedReader(fr);
-                    String linea;
-                    ta_1.setText("");
-                    while ((linea = br.readLine()) != null) {
-                        ta_1.append(linea);
-                        ta_1.append("\n");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        br.close();
-                        fr.close();
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int r = JOptionPane.showConfirmDialog(this, "seguro salir del universo?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -602,6 +652,17 @@ public class Multiverso extends javax.swing.JFrame {
             ban = false;
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jmi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarActionPerformed
+        int cosa = jl_seres.getSelectedIndex();
+        DefaultListModel modL
+                = (DefaultListModel) jl_seres.getModel();
+        modL.removeElement(cosa);
+    }//GEN-LAST:event_jmi_eliminarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -634,7 +695,7 @@ public class Multiverso extends javax.swing.JFrame {
             }
         });
     }
-    Universo uni;
+    
     Universo u = new Universo();
 
     boolean ban = false;

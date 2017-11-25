@@ -65,20 +65,18 @@ public class Universo {
             for (Object o : univ) {
                 String t = (String) o;
                 bw.write(t);
+                bw.flush();
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-
             try {
-                bw.flush();
-                Thread.sleep(500);
+
                 bw.close();
                 fw.close();
             } catch (IOException ex) {
                 Logger.getLogger(Multiverso.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Multiverso.class.getName()).log(Level.SEVERE, null, ex);
+
             }
 
         }
